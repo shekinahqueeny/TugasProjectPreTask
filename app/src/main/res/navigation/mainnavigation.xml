@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainnavigation"
+    app:startDestination="@id/homefragment">
+
+    <fragment
+        android:id="@+id/homefragment"
+        android:name="com.D121201056.pretask.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homefragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <action
+            android:id="@+id/action_homefragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.D121201056.pretask.fragments.ListFragment"
+        android:label="fragment_list"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_listFragment_to_homefragment"
+            app:destination="@id/homefragment" />
+        <action
+            android:id="@+id/action_listFragment_to_filledFragment"
+            app:destination="@id/filledFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/filledFragment"
+        android:name="com.D121201056.pretask.fragments.FilledFragment"
+        android:label="fragment_filled"
+        tools:layout="@layout/fragment_filled" >
+        <action
+            android:id="@+id/action_filledFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="currentTugas"
+            app:argType="com.D121201056.pretask.model.Tugas" />
+        <action
+            android:id="@+id/action_filledFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.D121201056.pretask.fragments.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" >
+        <action
+            android:id="@+id/action_historyFragment_to_homefragment"
+            app:destination="@id/homefragment" />
+        <action
+            android:id="@+id/action_historyFragment_to_filledFragment"
+            app:destination="@id/filledFragment" />
+    </fragment>
+</navigation>
